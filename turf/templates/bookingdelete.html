@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+            <link rel="stylesheet" href="{% static 'css/delte.css' %}">
+
+    <title>delete</title>
+</head>
+<body>
+<a href="{% url 'viewbooking' %}">Go back</a>
+<form method="post" action="">
+    {% csrf_token %}
+    <p>Are You Sure U want to delete</p>
+    <input type="submit" value="Delete">
+
+</form>
+</body>
+</html>

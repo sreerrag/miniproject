@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/turflist.css' %}">
+
+
+    <title>Booking list</title>
+</head>
+<body>
+  {% if request.user.is_authenticated %}
+        <p>{{request.user}}</p>
+        <a href="">logout</a>
+        {% else %}
+        {% endif %}
+
+<h1 align="center">Turf List</h1>
+
+<table>
+    <tr>
+    </tr>
+    {% for booking in viewbooking %}
+    <tr>
+        <td> {{booking.user}}</td>
+        <td> {{booking.turf}}</td>
+        <td> {{booking.start_time}}</td>
+        <td> {{booking.end_time}}</td>
+        <td><a href="{% url 'booking-update' booking.id %}">Edit</a></td>
+        <td><a href="{% url 'booking-delete' booking.id %}">Delete</a></td>
+        <td><a href="{% url 'booking-detail' booking.id %}">View</a></td>
+
+
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+</table>
+
+</body>
+</html>
